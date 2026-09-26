@@ -1,8 +1,5 @@
 from fastapi import FastAPI
+from app.routes.prompt_routes import router
 
 app = FastAPI(title="consult-ia-server")
-
-
-@app.get("/health")
-def health():
-    return {"saludo": "Hola esta es la primera etapa de mi proyecto"}
+app.include_router(router)

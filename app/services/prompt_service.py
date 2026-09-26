@@ -47,17 +47,17 @@ ESQUEMA
 El contexto del paciente (edad, sexo, alergias, antecedentes) es solo referencia: úsalo para generar advertencias, nunca para agregar datos a la consulta.
 """
 
-def transcribir_consulta(prompt: str):
+def transcribir_consulta(texto: str):
 
     response = client.chat.completions.create(
         model="deepseek-flash",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": prompt}
+            {"role": "user", "content": texto}
         ],
         response_format={"type": "json_object"},
         extra_body={"thinking": {"type": "disabled"}},
-        max_tokens=500,
+        max_tokens=1000,
         temperature=0
     )
 
