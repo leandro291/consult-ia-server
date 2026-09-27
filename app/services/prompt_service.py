@@ -1,11 +1,11 @@
-from openai import OpenAI
+from openai import AsyncOpenAI
 from dotenv import load_dotenv
 import os
 import json
 
 load_dotenv()
 
-client = OpenAI(
+client = AsyncOpenAI(
     api_key=os.getenv("DEEPSEEK_API_KEY"),
     base_url="https://api.deepseek.com",
 )
@@ -47,9 +47,9 @@ ESQUEMA
 El contexto del paciente (edad, sexo, alergias, antecedentes) es solo referencia: úsalo para generar advertencias, nunca para agregar datos a la consulta.
 """
 
-def transcribir_consulta(texto: str):
+async def transcribir_consulta(texto: str):
 
-    response = client.chat.completions.create(
+    response = await client.chat.completions.create(
         model="deepseek-flash",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},

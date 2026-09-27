@@ -5,5 +5,5 @@ from app.services.prompt_service import transcribir_consulta
 router = APIRouter(prefix="/consulta")
 
 @router.post("/prompt")
-def obtener_consulta(data: Prompt):
-    return transcribir_consulta(data.texto)
+async def obtener_consulta(data: Prompt):
+    return await transcribir_consulta(data.texto)
