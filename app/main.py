@@ -7,7 +7,7 @@ app.include_router(router)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:8000", "http://localhost:5173", "consult-ia-seven.vercel.app"],
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:8000", "http://localhost:5173", "https://consult-ia-seven.vercel.app"],
     allow_methods=["POST"],
     allow_headers=["Content-Type"]
 )
